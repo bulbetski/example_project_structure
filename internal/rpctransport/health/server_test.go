@@ -11,7 +11,7 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/test/bufconn"
 
-	health "github.com/builbetski/example_project_structure/gen/servergrpc/health"
+	"github.com/builbetski/example_project_structure/gen/servergrpc/health"
 )
 
 type fakeGRPCService struct {

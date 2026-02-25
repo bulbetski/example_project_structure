@@ -6,7 +6,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	health "github.com/builbetski/example_project_structure/gen/servergrpc/health"
+	"github.com/builbetski/example_project_structure/gen/servergrpc/health"
 )
 
 type HealthService interface {

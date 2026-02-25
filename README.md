@@ -9,6 +9,7 @@ docker compose up --build
 ```
 
 Service ports:
+
 - HTTP: `localhost:8080`
 - gRPC: `localhost:9090`
 

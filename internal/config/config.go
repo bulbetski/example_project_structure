@@ -8,10 +8,10 @@ import (
 )
 
 type Config struct {
-	HTTPAddr         string
-	GRPCAddr         string
-	DatabaseURL      string
-	ShutdownTimeout  time.Duration
+	HTTPAddr        string
+	GRPCAddr        string
+	DatabaseURL     string
+	ShutdownTimeout time.Duration
 }
 
 func Load() (*Config, error) {
@@ -25,10 +25,10 @@ func Load() (*Config, error) {
 	}
 
 	return &Config{
-		HTTPAddr:         httpAddr,
-		GRPCAddr:         grpcAddr,
-		DatabaseURL:      dbURL,
-		ShutdownTimeout:  shutdownTimeout,
+		HTTPAddr:        httpAddr,
+		GRPCAddr:        grpcAddr,
+		DatabaseURL:     dbURL,
+		ShutdownTimeout: shutdownTimeout,
 	}, nil
 }
 

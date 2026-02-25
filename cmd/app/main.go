@@ -15,7 +15,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 
-	health "github.com/builbetski/example_project_structure/gen/servergrpc/health"
+	"github.com/builbetski/example_project_structure/gen/servergrpc/health"
 	"github.com/builbetski/example_project_structure/internal/cli/deps"
 )
 

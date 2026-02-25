@@ -1,6 +1,7 @@
 # Project Structure Template
 
 ## Canonical Folder Tree
+
 ```text
 .
 ├─ Makefile
@@ -46,6 +47,7 @@
 ```
 
 ## Layer Responsibilities
+
 - `cmd/app/main.go` is the service entrypoint; subcommands live in `cmd/app/internal`.
 - `internal/cli/deps` owns dependency providers and DI container wiring used by subcommands.
 - `internal/config` holds configuration constants.
@@ -63,6 +65,7 @@
 - `tests/load` hosts load tests.
 
 ## Dependency Flow (Expected)
+
 ```text
 cmd/main
   -> cmd/internal (cobra)
@@ -76,16 +79,20 @@ internal/config is imported by wiring and runtime setup.
 ```
 
 ## Template: Add A New Module/Service
+
 1. Add domain types in `internal/domain/<module>`.
 2. Add a service package in `internal/service/<module>`.
 3. Define storage interfaces in the service and add `//go:generate go run go.uber.org/mock/mockgen` directives.
 4. Implement storage in `internal/repository/<module>`.
-5. Add transport handlers in `internal/httptransport/<module>`, `internal/rpctransport/<module>`, or `internal/kafkatransport/<module>`.
-6. Wire providers and container registrations under `internal/cli/deps` (update `providers.go`, `container.go`, and the relevant `services.go`, `repositories.go`, `servers.go`, `kafka-consumers.go`, `cronjobs.go`, `migrate.go`).
+5. Add transport handlers in `internal/httptransport/<module>`, `internal/rpctransport/<module>`, or
+   `internal/kafkatransport/<module>`.
+6. Wire providers and container registrations under `internal/cli/deps` (update `providers.go`, `container.go`, and the
+   relevant `services.go`, `repositories.go`, `servers.go`, `kafka-consumers.go`, `cronjobs.go`, `migrate.go`).
 7. Expose new services in `internal/service/services.go` when they are part of the shared service layer.
 8. Add tests next to each source file and generate mocks into a `mocks/` subfolder.
 
 ## Checklist: Recreate This Architecture
+
 - Add `cmd/<service>/main.go` and `cmd/<service>/internal` for cobra subcommands.
 - Create `internal/cli/deps` with provider functions and a DI container.
 - Split `internal` into `domain`, `service`, `repository`, and transport packages.
